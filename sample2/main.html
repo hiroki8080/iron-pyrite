@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+  <script src="./minimalWASI.js"></script>
+  <script>
+    const minimalWASI = new MinimalWASI();
+    var importObject = {
+      "wasi_snapshot_preview1": minimalWASI
+    };
+    WebAssembly.instantiateStreaming(fetch('http://localhost:8000/sample.wasm'), importObject).then(
+      (results) => {
+        console.log(results);
+        minimalWASI.setInstance(results.instance);
+        minimalWASI.start();
+      },
+    );
+  </script>
+</body>
+</html>
+
+

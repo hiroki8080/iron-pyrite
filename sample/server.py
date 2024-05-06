@@ -15,9 +15,7 @@ class HTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         http.server.SimpleHTTPRequestHandler.end_headers(self)
 
 Handler = HTTPRequestHandler
-Handler.extensions_map = {
-    '.wasm': 'application/wasm',
-}
+Handler.extensions_map['.wasm'] = 'application/wasm'
 
 with socketserver.TCPServer(("", PORT), Handler) as httpd:
     print("serving at port", PORT)
