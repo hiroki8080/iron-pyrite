@@ -1,10 +1,10 @@
-from core.material import Material
+from material import Material
 
 class Circle(Material):
 
     def check_points(self, points):
         try:
-            if len(points) == 2 and int(points[0]) and int(points[1]):
+            if len(points) > 1: # TODO
                 return True
         except:
             return False

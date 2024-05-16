@@ -1,4 +1,4 @@
-from core.material import Material
+from material import Material
 
 class Line(Material):
 
