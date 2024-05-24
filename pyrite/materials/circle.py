@@ -1,10 +1,10 @@
-from material import Material
+from . import material
 
-class Circle(Material):
+class Circle(material.Material):
 
     def check_points(self, points):
         try:
-            if len(points) > 1: # TODO
+            if len(points) >= 1: # TODO
                 return True
         except:
             return False
@@ -13,9 +13,10 @@ class Circle(Material):
         return True
 
     def match(self, info):
-        if info['is_outer_closed'] == self.is_outer_closed() and self.check_points(info['points']):
+        if info["outer_closed"] == self.is_outer_closed() and self.check_points(info["points"]):
             return True
         return False
 
     def get_name(self):
-        return 'Circle'
+        return "Circle"
+
