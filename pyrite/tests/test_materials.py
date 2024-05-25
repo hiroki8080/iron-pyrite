@@ -11,14 +11,12 @@ def main():
     # s = '{"input":[{"id":1,"points":[[54,149],[297,273]],"outer_closed":false,"position":{"x":175,"y":175},"angle":0},{"id":2,"points":[[199,176],[270,136],[271,106],[239,73],[117,125],[126,174]],"outer_closed":true,"position":{"x":204,"y":292},"angle":13}]}'
     # s = '{"input":[{"id":1,"points":[[144,166],[179,114],[165,67],[71,79],[65,135],[87,156]],"outer_closed":true,"position":{"x":119,"y":161},"angle":49},{"id":2,"points":[[42,174],[336,267]],"outer_closed":false,"position":{"x":189,"y":189},"angle":0}]}'
     # s = '{"input":[{"id":1,"points":[[194,178],[233,138],[232,87],[195,42],[150,48],[113,81],[103,118],[124,159],[156,177]],"outer_closed":true,"position":{"x":167,"y":151},"angle":28},{"id":2,"points":[[39,187],[309,249]],"outer_closed":false,"position":{"x":174,"y":218},"angle":0}]}'
-    s = '{"input":[{"id":1,"points":[[199,165],[238,139],[252,93],[107,52],[102,104],[147,161]],"outer_closed":true,"position":{"x":177,"y":529},"angle":7},{"id":2,"points":[[52,166],[362,219]],"outer_closed":false,"position":{"x":207,"y":192},"angle":0}]}'
-    res = ''
-    # for i in range(0, 5):
-    #     if i == 0:
-    #         res = test(s)
-    #     else:
-    #         res = test(res)
-
+    # s = '{"input":[{"id":1,"points":[[199,165],[238,139],[252,93],[107,52],[102,104],[147,161]],"outer_closed":true,"position":{"x":177,"y":529},"angle":7},{"id":2,"points":[[52,166],[362,219]],"outer_closed":false,"position":{"x":207,"y":192},"angle":0}]}'
+    # s = '{"input":[{"id":1,"points":[[279,169],[27,301]],"outer_closed":false,"position":{"x":153,"y":235},"angle":0},{"id":2,"points":[[59,87],[77,87],[85,67],[80,42],[25,42]],"outer_closed":true,"position":{"x":65,"y":65},"angle":14},{"id":3,"points":[[170,156],[166,92],[98,80],[54,130],[52,175],[86,207],[134,212],[173,176]],"outer_closed":true,"position":{"x":115,"y":427},"angle":14}]}'
+    # s = '{"input":[{"id":3,"points":[[170,156],[166,92],[98,80],[54,130],[52,175],[86,207],[134,212],[173,176]],"outer_closed":true,"angle":14}]}'
+    # s = '{"input":[{"id":1,"points":[[233,142],[272,32],[213,15],[155,67],[162,99],[188,120]],"outer_closed":true,"angle":12},{"id":2,"points":[[320,127],[65,249]],"outer_closed":false,"angle":0}]}'
+    # s = '{"input":[{"id":1,"points":[[290,141],[299,50],[265,40],[215,98],[228,118]],"outer_closed":true,"angle":8},{"id":2,"points":[[360,139],[73,243]],"outer_closed":false,"angle":0}]}'
+    s = '{"input":[{"id":1,"points":[[252,141],[292,82],[281,64],[235,52],[185,83],[185,110],[200,127]],"outer_closed":true,"angle":10},{"id":2,"points":[[332,127],[22,275]],"outer_closed":false,"angle":0}]}'
     test(s)
 
 def test(s):
@@ -32,13 +30,9 @@ def test(s):
             for neighbor in material.neighbors:
                 if neighbor.get_name() == "Line":
                     print(f"neighbor = {neighbor}")
-                    print(f"before position = {material.position}")
+                    print(f"[neighbor]before position = {material.position}")
                     move_motion.MoveMotion(material, neighbor, move.Move()).execute()
-                    print(f"update position = {material.position}")
-
-    for material in match_list:
-        if material.get_name() == "Circle":
-            print(f"update position = {material.position}")
+                    print(f"[neighbor]update position = {material.position}")
 
     new_pipeline = Pipeline()
     return new_pipeline.write(match_list)

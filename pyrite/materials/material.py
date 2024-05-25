@@ -5,7 +5,7 @@ from abc import ABCMeta, abstractmethod
 
 class Material(metaclass=ABCMeta):
 
-    GRAVITY_RANGE = 50
+    GRAVITY_RANGE = 20
 
     def __init__(self) -> None:
         self.id = 0
