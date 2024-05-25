@@ -1,6 +1,6 @@
-from material import Material
+from . import material
 
-class Line(Material):
+class Line(material.Material):
 
     def check_points(self, points):
         try:
@@ -15,9 +15,9 @@ class Line(Material):
         return False
 
     def match(self, info):
-        if info['is_outer_closed'] == self.is_outer_closed() and self.check_points(info['points']):
+        if info["outer_closed"] == self.is_outer_closed() and self.check_points(info["points"]):
             return True
         return False
 
     def get_name(self):
-        return 'Line'
+        return "Line"
