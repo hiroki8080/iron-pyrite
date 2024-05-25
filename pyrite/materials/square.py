@@ -1,13 +1,17 @@
 from . import material
 
-class Circle(material.Material):
+class Square(material.Material):
 
     def check_points(self, points):
+        res = False
         try:
-            if len(points) >= 1: # TODO
-                return True
+            if len(points) == 4:
+                for point in points:
+                    if len (point) == 2:
+                        res = int(point[0]) and int(point[1])
         except:
-            return False
+            return res
+        return res
 
     def is_outer_closed(self):
         return True
@@ -18,5 +22,4 @@ class Circle(material.Material):
         return False
 
     def get_name(self):
-        return "Circle"
-
+        return "Square"

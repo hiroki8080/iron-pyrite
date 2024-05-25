@@ -1,8 +1,8 @@
+from .action import Action
 
-class Rotate:
+class Rotate(Action):
 
-    def left(self):
-        pass
-
-    def right(self):
-        pass
+    def execute(self, material, neighbor=None):
+        material.angle+=self.volume
+        return material
+        # current.angle+=1
